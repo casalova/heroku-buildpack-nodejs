@@ -31,30 +31,30 @@ run_if_present() {
 
 log_build_scripts() {
   local build=$(read_json "$BUILD_DIR/package.json" ".scripts[\"build\"]")
-  local heroku_prebuild=$(read_json "$BUILD_DIR/package.json" ".scripts[\"heroku-prebuild\"]")
+  local heroku_prebuild=$(read_json "$BUILD_DIR/package.json" ".scripts[\"heroku-test-prebuild\"]")
   local heroku_postbuild=$(read_json "$BUILD_DIR/package.json" ".scripts[\"heroku-test-postbuild\"]")
 
   if [ -n "$build" ]; then
     mcount "scripts.build"
 
     if [ -z "$heroku_postbuild" ]; then
-      mcount "scripts.build-without-heroku-postbuild"
+      mcount "scripts.build-without-heroku-test-postbuild"
     fi
   fi
 
   if [ -n "$heroku_prebuild" ]; then
-    mcount "scripts.heroku-prebuild"
+    mcount "scripts.heroku-test-prebuild"
   fi
 
   if [ -n "$heroku_postbuild" ]; then
-    mcount "scripts.heroku-postbuild"
+    mcount "scripts.heroku-test-postbuild"
   fi
 
   if [ -n "$heroku_postbuild" ] && [ -n "$build" ]; then
-    mcount "scripts.build-and-heroku-postbuild"
+    mcount "scripts.build-and-heroku-test-postbuild"
 
     if [ "$heroku_postbuild" != "$build" ]; then
-      mcount "scripts.different-build-and-heroku-postbuild"
+      mcount "scripts.different-build-and-heroku-test-postbuild"
     fi
   fi
 }

@@ -192,14 +192,14 @@ testEnvBlacklist() {
 
 testPrePostBuildScripts() {
   compile "pre-post-build-scripts"
-  assertCaptured "Running heroku-prebuild"
-  assertCaptured "echo heroku-prebuild hook message"
+  assertCaptured "Running heroku-test-prebuild"
+  assertCaptured "echo heroku-test-prebuild hook message"
   assertCaptured "Running heroku-test-postbuild"
   assertCaptured "echo heroku-test-postbuild hook message"
   assertCapturedSuccess
 
   compile "stable-node"
-  assertNotCaptured "Running heroku-prebuild"
+  assertNotCaptured "Running heroku-test-prebuild"
   assertNotCaptured "Running heroku-test-postbuild"
   assertCapturedSuccess
 }

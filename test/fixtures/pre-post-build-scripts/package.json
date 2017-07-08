@@ -10,7 +10,7 @@
     "node": "~0.10.0"
   },
   "scripts" : {
-    "heroku-prebuild" : "echo heroku-prebuild hook message",
-    "heroku-postbuild" : "echo heroku-postbuild hook message"
+    "heroku-test-prebuild" : "echo heroku-test-prebuild hook message",
+    "heroku-test-postbuild" : "echo heroku-test-postbuild hook message"
   }
 }

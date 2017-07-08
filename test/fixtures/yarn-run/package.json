@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "heroku-postbuild": "echo 'foobar'"
+    "heroku-test-postbuild": "echo 'foobar'"
   },
   "dependencies": {
     "lodash": "^4.16.4"

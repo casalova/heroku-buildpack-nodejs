@@ -158,7 +158,7 @@ header "Restoring cache"
 restore_cache | output "$LOG_FILE"
 
 build_dependencies() {
-  run_if_present 'heroku-prebuild'
+  run_if_present 'heroku-test-prebuild'
 
   local cache_status="$(get_cache_status)"
   local start=$(nowms)
@@ -174,7 +174,7 @@ build_dependencies() {
 
   mtime "modules.time.cache.$cache_status" "${start}"
 
-  run_if_present 'heroku-postbuild'
+  run_if_present 'heroku-test-postbuild'
   # TODO: run_if_present 'build'
   log_build_scripts
 }

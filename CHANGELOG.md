@@ -72,7 +72,7 @@
 
 ## v89 (2016-3-11)
 
-- Adds heroku-prebuild script
+- Adds heroku-test-prebuild script
 - Adds heroku-postbuild script
 
 ## v88 (2016-2-23)

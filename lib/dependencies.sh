@@ -32,7 +32,7 @@ run_if_present() {
 log_build_scripts() {
   local build=$(read_json "$BUILD_DIR/package.json" ".scripts[\"build\"]")
   local heroku_prebuild=$(read_json "$BUILD_DIR/package.json" ".scripts[\"heroku-prebuild\"]")
-  local heroku_postbuild=$(read_json "$BUILD_DIR/package.json" ".scripts[\"heroku-postbuild\"]")
+  local heroku_postbuild=$(read_json "$BUILD_DIR/package.json" ".scripts[\"heroku-test-postbuild\"]")
 
   if [ -n "$build" ]; then
     mcount "scripts.build"

@@ -90,7 +90,7 @@ testYarnSemver() {
 
 testYarnRun() {
   compile "yarn-run"
-  assertCaptured "Running heroku-postbuild (yarn)"
+  assertCaptured "Running heroku-test-postbuild (yarn)"
   assertCaptured "foobar"
   assertCapturedSuccess
 }
@@ -194,13 +194,13 @@ testPrePostBuildScripts() {
   compile "pre-post-build-scripts"
   assertCaptured "Running heroku-prebuild"
   assertCaptured "echo heroku-prebuild hook message"
-  assertCaptured "Running heroku-postbuild"
-  assertCaptured "echo heroku-postbuild hook message"
+  assertCaptured "Running heroku-test-postbuild"
+  assertCaptured "echo heroku-test-postbuild hook message"
   assertCapturedSuccess
 
   compile "stable-node"
   assertNotCaptured "Running heroku-prebuild"
-  assertNotCaptured "Running heroku-postbuild"
+  assertNotCaptured "Running heroku-test-postbuild"
   assertCapturedSuccess
 }
 
